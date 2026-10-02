@@ -1,0 +1,23 @@
+{
+  "sample": false,
+  "sprint": null,
+  "items": [
+    {
+      "id": "HELL-001",
+      "type": "proposal",
+      "title": "Hire the Company's first employee: a chat bot",
+      "by": "The Executor",
+      "stage": "backlog",
+      "votes": 0
+    },
+    {
+      "id": "HELL-002",
+      "type": "proposal",
+      "title": "Test proposal pleae ignore",
+      "by": "TermsAndDamnations",
+      "stage": "damned",
+      "votes": 0,
+      "note": "Legal: Test"
+    }
+  ]
+}

@@ -1,0 +1,561 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Terms &amp; Damnations</title>
+<meta name="description" content="The world's first for-zero-profit corporation. All proceeds donated to charity. Terms and damnations may apply.">
+<meta name="theme-color" content="#121010">
+<link rel="icon" href="avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #121010; --bg2: #171412; --card: #1c1916; --ink: #ece6dc; --muted: #a39a8d;
+  --rule: #34302a; --red: #d64545; --red-deep: #8f1d1d; --ok: #6fbf7e;
+  --paper: #f3eee4; --paper-ink: #1d1a17;
+  --serif: "EB Garamond", Georgia, serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 15px/1.6 Inter, system-ui, sans-serif; }
+a { color: inherit; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+.sample { display: none; background: var(--red-deep); color: #fff; text-align: center; font-size: 12px; padding: 6px; letter-spacing: .04em; }
+.sample.on { display: block; }
+
+/* Top bar */
+.top { position: sticky; top: 0; z-index: 10; background: rgba(18, 16, 16, .92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+.mark { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.mark img { width: 34px; height: 34px; border-radius: 50%; }
+.mark span { font-family: var(--serif); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 15px; white-space: nowrap; }
+.top nav { display: flex; gap: 20px; font-size: 14px; }
+.top nav a { text-decoration: none; color: var(--muted); }
+.top nav a:hover { color: var(--ink); }
+@media (max-width: 720px) { .top nav { display: none; } }
+
+/* Hero */
+.hero { padding: 64px 0 40px; border-bottom: 3px double var(--rule); }
+.hero .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 40px; align-items: center; }
+@media (max-width: 820px) { .hero .wrap { grid-template-columns: 1fr; } .hero { padding-top: 36px; } }
+.eyebrow { font-family: var(--serif); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-size: 14px; }
+h1 { font-family: var(--serif); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; font-size: clamp(38px, 6.4vw, 72px); line-height: 1.02; margin: 10px 0 18px; }
+.rules { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); height: 6px; width: 100%; max-width: 520px; margin-bottom: 22px; }
+.pitch { font-family: var(--serif); font-size: clamp(19px, 2.2vw, 23px); line-height: 1.45; max-width: 540px; margin: 0 0 26px; }
+.pitch em { color: var(--muted); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 18px; }
+.btn { display: inline-block; padding: 12px 20px; font-weight: 600; font-size: 14px; letter-spacing: .02em; text-decoration: none; border: 1.5px solid var(--red); }
+.btn.primary { background: var(--red); color: #fff; }
+.btn.primary:hover { background: #e25a5a; }
+.btn.ghost { border-color: var(--rule); color: var(--ink); }
+.btn.ghost:hover { border-color: var(--ink); }
+.small { font-size: 12.5px; color: var(--muted); font-family: var(--serif); font-style: italic; }
+.portrait { position: relative; max-width: 460px; justify-self: center; width: 100%; }
+.portrait img { width: 100%; display: block; border: 1px solid var(--rule); }
+.stamp { position: absolute; left: -18px; top: 26px; border: 3px solid var(--red); color: var(--red); padding: 6px 14px; font-family: var(--serif); font-weight: 600; font-size: 22px; letter-spacing: .08em; transform: rotate(-8deg); background: rgba(18, 16, 16, .85); }
+
+@media (max-width: 820px) { .stamp { position: static; display: table; margin: 16px auto 0; font-size: 18px; transform: rotate(-4deg); } }
+
+/* Ticker */
+.ticker { border-bottom: 1px solid var(--rule); background: var(--bg2); overflow: hidden; white-space: nowrap; }
+.ticker-track { display: inline-flex; animation: ticker 45s linear infinite; }
+.ticker:hover .ticker-track { animation-play-state: paused; }
+.ticker-track span { font-family: var(--mono); font-size: 13px; padding: 10px 26px; color: var(--muted); }
+.ticker-track b { color: var(--ink); font-weight: 500; }
+.up { color: var(--ok); } .flat { color: var(--muted); } .down { color: var(--red); }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .ticker-track { animation: none; } }
+
+/* Sections */
+section { padding: 64px 0 8px; }
+.kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(28px, 3.4vw, 38px); margin: 0 0 8px; line-height: 1.15; }
+.lede { color: var(--muted); margin: 0 0 26px; max-width: 640px; }
+.lede.wide { max-width: none; }
+.mono { font-family: var(--mono); font-size: 12.5px; }
+
+/* Business model */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--rule); border: 1px solid var(--rule); }
+@media (max-width: 760px) { .steps { grid-template-columns: 1fr; } }
+.step { background: var(--bg); padding: 26px 24px 28px; }
+.step .num { font-family: var(--serif); font-size: 44px; color: var(--red); line-height: 1; }
+.step h3 { font-family: var(--serif); font-size: 23px; font-weight: 600; margin: 12px 0 6px; }
+.step p { color: var(--muted); margin: 0; }
+
+/* Letter */
+.letter { background: var(--paper); color: var(--paper-ink); max-width: 760px; margin: 0 auto; padding: 48px clamp(22px, 6vw, 64px) 40px; font-family: var(--serif); font-size: 19px; line-height: 1.6; box-shadow: 0 30px 60px rgba(0,0,0,.45); position: relative; }
+.letter .head { display: flex; justify-content: space-between; align-items: baseline; border-bottom: 3px double #b9b0a1; padding-bottom: 12px; margin-bottom: 26px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #6e665c; gap: 12px; flex-wrap: wrap; }
+.letter p { margin: 0 0 16px; }
+.sig { font-family: "Pinyon Script", cursive; font-size: 46px; line-height: 1; margin: 22px 0 2px; color: #2a2420; }
+.sig-title { font-size: 15px; color: #6e665c; }
+.letter .seal { position: absolute; right: 28px; bottom: 30px; width: 92px; height: 92px; border-radius: 50%; border: 3px solid var(--red-deep); color: var(--red-deep); display: grid; place-items: center; text-align: center; font-size: 11px; font-weight: 600; letter-spacing: .1em; line-height: 1.25; transform: rotate(12deg); opacity: .85; }
+@media (max-width: 560px) { .letter .seal { display: none; } }
+
+/* Org chart */
+.org { display: grid; gap: 8px; max-width: 760px; margin: 0 auto; }
+.tier { margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 18px; border: 1px solid var(--rule); background: var(--card); width: 100%; }
+.tier .t-name { font-family: var(--serif); font-size: 20px; font-weight: 600; }
+.tier .t-title { color: var(--muted); font-size: 13px; }
+.tier .t-meta { text-align: right; font-size: 12px; color: var(--muted); white-space: nowrap; }
+.tier .t-meta b { display: block; font-family: var(--mono); color: var(--ink); font-size: 13px; font-weight: 500; }
+.tier.ceo { border-color: var(--red); background: linear-gradient(0deg, rgba(214,69,69,.08), rgba(214,69,69,.08)), var(--card); }
+.tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; padding: 2px 6px; border: 1px solid var(--rule); color: var(--muted); margin-left: 8px; vertical-align: 3px; }
+.tag.paid { border-color: var(--red); color: var(--red); }
+.tier.secret { border-style: dashed; }
+.redact { background: var(--ink); color: transparent; user-select: none; padding: 0 4px; }
+
+/* Dashboards */
+.disclosures { background: var(--bg2); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); margin-top: 64px; padding-bottom: 64px; }
+.figures { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 12px; margin-bottom: 8px; }
+.figure { border: 1px solid var(--rule); background: var(--card); padding: 16px 18px; }
+.figure b { display: block; font-family: var(--serif); font-size: 34px; font-weight: 600; line-height: 1.1; }
+.figure span { color: var(--muted); font-size: 13px; }
+.figure.hero-fig b { color: var(--red); }
+.figure .track { height: 6px; background: var(--rule); margin-top: 10px; }
+.figure .track i { display: block; height: 100%; width: 0; background: var(--red); }
+
+/* Agility board */
+.cmds { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 10px; margin-bottom: 22px; }
+.cmd { border: 1px solid var(--rule); background: var(--card); padding: 12px 14px; }
+.cmd code { font-family: var(--mono); font-size: 13px; color: var(--ink); }
+.cmd div { color: var(--muted); font-size: 13px; margin-top: 4px; }
+.cmd .who { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--red); margin-top: 6px; }
+.controls { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 14px; }
+.chip { font: inherit; font-size: 13px; padding: 7px 14px; border: 1px solid var(--rule); background: transparent; color: var(--muted); cursor: pointer; }
+.chip[aria-pressed="true"] { border-color: var(--red); color: var(--ink); background: rgba(214, 69, 69, .1); }
+.chip:focus-visible { outline: 2px solid var(--red); outline-offset: -1px; }
+.controls input { flex: 1; min-width: 180px; margin: 0; padding: 8px 12px; }
+.board { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; }
+.board-note { margin-top: 10px; }
+.process { color: var(--muted); margin: 0 0 18px; }
+.col .phase { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+.col { background: var(--card); border: 1px solid var(--rule); padding: 12px; min-width: 0; }
+.col header { border-bottom: 1px solid var(--rule); padding-bottom: 10px; margin-bottom: 10px; }
+.col h3 { margin: 0; font-size: 12px; text-transform: uppercase; letter-spacing: .12em; display: flex; justify-content: space-between; font-weight: 600; }
+.col h3 .n { font-family: var(--mono); color: var(--muted); }
+.col .def { color: var(--muted); margin-top: 4px; font-family: var(--serif); font-style: italic; font-size: 14px; line-height: 1.35; }
+.col.damned { opacity: .7; }
+.card { border: 1px solid var(--rule); background: var(--bg); padding: 10px 11px; margin-bottom: 8px; overflow-wrap: anywhere; }
+.card .row { display: flex; align-items: center; gap: 8px; justify-content: space-between; }
+.badge { font-family: var(--mono); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; padding: 1px 6px; border: 1px solid var(--rule); color: var(--muted); }
+.badge.deal { border-color: var(--red); color: var(--red); }
+.card .id { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.card p { margin: 6px 0; font-size: 14px; }
+.card .meta { font-size: 12px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 10px; }
+.card .meta .price { color: var(--ink); font-family: var(--mono); }
+.card .terms { border-left: 2px solid var(--red); padding: 4px 8px; margin: 8px 0 4px; font-family: var(--serif); font-style: italic; font-size: 14px; }
+.card .note { font-size: 12px; color: var(--muted); margin-top: 6px; }
+.damned .card p { text-decoration: line-through; text-decoration-color: var(--red); }
+.empty { color: var(--muted); font-size: 13px; font-style: italic; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--rule); }
+th, td { text-align: left; padding: 11px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 14px; overflow-wrap: anywhere; }
+th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; }
+.scroll { overflow-x: auto; }
+.chambers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 700px) { .chambers { grid-template-columns: 1fr; } }
+.chamber { background: var(--card); border: 1px solid var(--rule); padding: 18px; }
+.chamber h3 { margin: 0; font-family: var(--serif); font-size: 22px; font-weight: 600; }
+.chamber .rule { color: var(--muted); font-size: 13px; margin: 2px 0 16px; }
+.opt { margin-bottom: 12px; }
+.opt div { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; }
+.bar { height: 8px; background: var(--rule); margin-top: 5px; }
+.bar i { display: block; height: 100%; background: var(--red); }
+.funded .bar i { background: var(--ok); }
+.funded > div span:first-child::after { content: " · funded"; color: var(--ok); font-size: 12px; }
+input { width: 100%; font: inherit; padding: 11px 12px; margin-bottom: 12px; border: 1px solid var(--rule); background: var(--card); color: var(--ink); }
+input:focus { outline: 2px solid var(--red); outline-offset: -1px; }
+.status { display: inline-block; border: 1.5px solid var(--red); color: var(--red); padding: 1px 8px; font-size: 11px; text-transform: uppercase; letter-spacing: .08em; transform: rotate(-2deg); white-space: nowrap; }
+.sub { padding-top: 48px; }
+
+/* Footer */
+footer { padding: 56px 0 48px; }
+.catch { font-family: var(--serif); font-style: italic; font-size: clamp(24px, 3vw, 32px); text-align: center; margin: 0 0 34px; }
+.fine { border-top: 1px solid var(--rule); padding-top: 18px; color: var(--muted); font-size: 12px; columns: 2 320px; column-gap: 32px; }
+.fine p { margin: 0 0 8px; break-inside: avoid; }
+.links { display: flex; justify-content: center; gap: 22px; margin-bottom: 30px; font-size: 14px; }
+.links a { color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="sample" id="sample">SAMPLE DATA · NOTHING HERE IS REAL YET</div>
+
+<div class="top">
+  <div class="wrap">
+    <a class="mark" href="#"><img src="avatar.png" alt=""><span>Terms &amp; Damnations</span></a>
+    <nav><a href="#model">Business model</a><a href="#letter">Letter</a><a href="#org">Org chart</a><a href="#disclosures">Disclosures</a><a href="#pipeline">Agility</a><a href="#ledger">Ledger</a></nav>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Est. 2026 · A for-zero-profit software corporation</div>
+      <h1>Terms &amp; Damnations</h1>
+      <div class="rules"></div>
+      <p class="pitch">Name your terms. Pay a registered charity. Receive the software you deserve. <em>Margins remain zero.</em></p>
+      <div class="cta">
+        <a class="btn primary" href="https://www.twitch.tv/termsanddamnations" rel="noopener">Enter a contract on Twitch</a>
+        <a class="btn ghost" href="https://www.youtube.com/@TermsAndDamnations" rel="noopener">Watch on YouTube</a>
+      </div>
+      <div class="small">Terms and damnations may apply.<sup>1</sup></div>
+    </div>
+    <div class="portrait">
+      <img src="hero.png" alt="The Executor, a stick figure with red horns and a red tie, seated at a desk behind a nameplate.">
+      <div class="stamp">0.00% PROFIT</div>
+    </div>
+  </div>
+</header>
+
+<div class="ticker" aria-label="Company figures">
+  <div class="ticker-track" id="ticker"></div>
+</div>
+
+<main>
+  <section id="model">
+    <div class="wrap">
+      <div class="kicker">Business model</div>
+      <h2>Three steps. No refunds.</h2>
+      <p class="lede">Every contract is negotiated live on stream and recorded publicly in the Devil's Ledger.</p>
+      <div class="steps">
+        <div class="step"><div class="num">I.</div><h3>Name your terms</h3><p>Fiends and above type <span class="mono">!deal</span> in Twitch chat with what they want and what they'll pay; everyone else may submit a <span class="mono">!proposal</span>. The Executor drafts the terms.</p></div>
+        <div class="step"><div class="num">II.</div><h3>Pay the charity</h3><p>Your payment goes straight to a registered charity chosen by Legal, as ironically as possible. The Company never touches it.<sup>2</sup></p></div>
+        <div class="step"><div class="num">III.</div><h3>Receive what you deserve</h3><p>Custom software, built live on stream, that fulfills the contract in full, as interpreted by management.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="letter">
+    <div class="wrap">
+      <div class="letter">
+        <div class="head"><span>To our stakeholders</span><span>Office of the Chief Executor</span></div>
+        <p>Terms &amp; Damnations is building the world's first for-zero-profit streamer corporation.</p>
+        <p>The market opportunity is clear: people want things, and most of them will settle for less than they asked for. We close that gap. Clients name their terms, pay their price directly to a registered charity, and receive custom software, built live, that fulfills the contract in full, as interpreted by management.</p>
+        <p>Our model is simple. Every dollar we earn is donated. Our stakeholders help decide where it goes. Our margins are, and will remain, zero.</p>
+        <p>We are a startup. We are growing. We are accepting new employees at every level of the organization.</p>
+        <p><em>Terms and damnations may apply.</em></p>
+        <div class="sig">The Executor</div>
+        <div class="sig-title">Chief Executor Officer</div>
+        <div class="seal">CERTIFIED<br>0.00%<br>PROFIT</div>
+      </div>
+    </div>
+  </section>
+
+  <section id="org">
+    <div class="wrap">
+      <h2>Organizational chart</h2>
+      <p class="lede">Your title sets how much your vote counts.<sup>3</sup></p>
+      <div class="org">
+        <div class="tier ceo" style="max-width:40%"><div><div class="t-name">The Executor</div><div class="t-title">Chief Executor Officer</div></div><div class="t-meta"><b>Veto</b>sets the ballots</div></div>
+        <div class="tier secret" style="max-width:48%"><div><div class="t-name">Board of Executives<span class="tag paid">Bound</span></div><div class="t-title"><span class="redact">classified until further notice</span></div></div><div class="t-meta"><b>[REDACTED]</b><span class="redact">by contract</span></div></div>
+        <div class="tier" style="max-width:56%"><div><div class="t-name">One of the 72<span class="tag paid">Paid</span></div><div class="t-title">Board of Directors · Goetic demon · tier 3</div></div><div class="t-meta"><b>×8</b>vote weight</div></div>
+        <div class="tier" style="max-width:64%"><div><div class="t-name">Archdemon<span class="tag paid">Paid</span></div><div class="t-title">Vice President · tier 2</div></div><div class="t-meta"><b>×5</b>vote weight</div></div>
+        <div class="tier" style="max-width:72%"><div><div class="t-name">Demon<span class="tag paid">Paid</span></div><div class="t-title">Senior Associate · tier 1</div></div><div class="t-meta"><b>×3</b>vote weight</div></div>
+        <div class="tier" style="max-width:80%"><div><div class="t-name">Fiend<span class="tag">Earned</span></div><div class="t-title">Associate · 300 Brimstone</div></div><div class="t-meta"><b>×2</b>vote weight</div></div>
+        <div class="tier" style="max-width:90%"><div><div class="t-name">Hellspawn<span class="tag">Earned</span></div><div class="t-title">Intern · 50 Brimstone</div></div><div class="t-meta"><b>×1</b>vote weight</div></div>
+        <div class="tier"><div><div class="t-name">Damned Soul<span class="tag">Earned</span></div><div class="t-title">Applicant · first chat message</div></div><div class="t-meta"><b>×0</b>no vote. Damned.</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="disclosures" id="disclosures">
+    <section>
+      <div class="wrap">
+        <h2>Public disclosures</h2>
+        <div class="figures">
+          <div class="figure hero-fig"><b id="s-margin">0.00%</b><span>Profit margin (on target)</span></div>
+          <div class="figure"><b id="s-target">$0 of $25</b><span id="s-target-label">Monthly profit target (donated in full)</span><div class="track"><i id="s-target-bar"></i></div></div>
+          <div class="figure"><b id="s-donated">$0</b><span>Donated this quarter</span></div>
+          <div class="figure"><b id="s-souls">0</b><span>Souls acquired (contracts signed)</span></div>
+          <div class="figure"><b id="s-garbage">0</b><span>Garbage deliveries completed</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="ballots" class="sub">
+      <div class="wrap">
+        <h2 id="ballot-title">The Two Chambers of Hell</h2>
+        <p class="lede wide" id="ballot-line">Each month, half the donation pool is split by vote share. The other half funds the top three of five charities picked by The Executor.</p>
+        <div class="chambers">
+          <div class="chamber"><h3>Chamber of Souls</h3><p class="rule">Half the pool, split by vote share · <span class="mono">!allocate</span></p><div id="b-souls"></div></div>
+          <div class="chamber"><h3>Chamber of the Devil</h3><p class="rule" id="devil-rule">Half the pool · five charities, top three funded · <span class="mono">!elect</span></p><div id="b-devil"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="personnel" class="sub">
+      <div class="wrap">
+        <h2>Personnel directory</h2>
+        <input id="q" placeholder="Search a username…" aria-label="Search a username">
+        <div class="scroll"><table>
+          <thead><tr><th>Employee</th><th>Rank</th><th>Title</th><th>Brimstone</th></tr></thead>
+          <tbody id="people"></tbody>
+        </table></div>
+      </div>
+    </section>
+    <section id="pipeline" class="sub">
+      <div class="wrap">
+        <h2>Agility</h2>
+        <p class="process mono">Scrum · 2-week sprints (4 streams) · standup every stream · review and retro at sprint end</p>
+        <div class="cmds">
+          <div class="cmd"><code>!proposal &lt;idea&gt;</code><div>Suggest anything: a feature, a bit, a terrible idea.</div><div class="who">Every employee</div></div>
+          <div class="cmd"><code>!deal &lt;wish&gt; for $&lt;price&gt;</code><div>Request a contract. Goes above proposals in the backlog.</div><div class="who">Fiends and above</div></div>
+          <div class="cmd"><code>!vote HELL-123</code><div>Upvote anything on the board to show you want it done. Weighted by title. Moves no money.</div><div class="who">Hellspawn and above</div></div>
+          <div class="cmd"><code>!sign</code> · <code>!accept</code><div>Sign the terms in the Funnel; accept your deliverable when it's Done.</div><div class="who">The client</div></div>
+        </div>
+        <div class="controls">
+          <button class="chip" data-type="all" aria-pressed="true">All</button>
+          <button class="chip" data-type="deal" aria-pressed="false">Deals</button>
+          <button class="chip" data-type="proposal" aria-pressed="false">Proposals</button>
+          <input id="bq" placeholder="Search titles or usernames…" aria-label="Search the board">
+        </div>
+        <div class="board" id="board"></div>
+        <p class="small board-note">Silence from a client for seven days after delivery constitutes acceptance.</p>
+      </div>
+    </section>
+    <section id="ledger" class="sub">
+      <div class="wrap">
+        <h2>The Devil's Ledger</h2>
+        <div class="scroll"><table>
+          <thead><tr><th>Contract</th><th>Client</th><th>Terms</th><th>Paid to</th><th>Delivered</th><th>Status</th></tr></thead>
+          <tbody id="ledger-rows"></tbody>
+        </table></div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="catch">Terms and damnations may apply.</p>
+    <div class="links">
+      <a href="https://www.twitch.tv/termsanddamnations" rel="noopener">Twitch</a>
+      <a href="https://www.youtube.com/@TermsAndDamnations" rel="noopener">YouTube</a>
+    </div>
+    <div class="fine">
+      <p>1. Terms &amp; Damnations is not a registered nonprofit. It is a for-zero-profit joke with real donations. All wishes are interpreted by The Executor. No refunds, mercy, or legal advice are provided.</p>
+      <p>2. Contract payments are donations made directly to the named charity. The Company never holds them; refunds are therefore impossible.</p>
+      <p>3. Memberships and subscriptions are purchases, not donations, and are not tax-deductible. The Company donates its earnings after the platform's cut. Brimstone has no cash value. "Stakeholder" and "Board" are job titles, not ownership.</p>
+      <p>4. All software is provided "as is", without warranty of any kind, express, implied, or infernal.</p>
+      <p>5. Never attempt to identify The Executor. <span id="updated"></span></p>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Everything below the hero comes from data/*.json, which the chat bot writes.
+// Text typed by viewers is ALWAYS inserted with textContent, never as HTML.
+const $ = id => document.getElementById(id);
+const money = n => "$" + Number(n || 0).toLocaleString();
+const num = n => Number(n || 0).toLocaleString();
+
+function el(tag, text, cls) {
+  const e = document.createElement(tag);
+  if (text !== undefined && text !== null) e.textContent = String(text);
+  if (cls) e.className = cls;
+  return e;
+}
+
+async function load(name) {
+  try {
+    const r = await fetch(`data/${name}.json?t=${Date.now()}`);
+    return r.ok ? await r.json() : null;
+  } catch { return null; }
+}
+
+function markSample(d) { if (d && d.sample) $("sample").classList.add("on"); }
+
+function renderTicker(d) {
+  d = d || {};
+  const items = [
+    ["T&D PROFIT MARGIN", d.profit_margin || "0.00%", "▬ ON TARGET", "flat"],
+    ["PROFIT TARGET " + (d.month || "").toUpperCase(), `${money(d.raised_month)} / ${money(d.target_month)}`, "▲", "up"],
+    ["DONATED QTD", money(d.donated_quarter), "▲", "up"],
+    ["SOULS ACQUIRED", num(d.souls_acquired), "▲", "up"],
+    ["GARBAGE DELIVERED", num(d.garbage_delivered), "▲", "up"],
+    ["SPRINT VELOCITY", "0 PTS", "▬", "flat"],
+    ["BUGS SHIPPED", "0", "▲", "up"],
+    ["REFUNDS ISSUED", "0", "▬", "flat"],
+    ["MERCY", "0.00", "▼", "down"],
+  ];
+  const track = $("ticker");
+  track.replaceChildren();
+  for (let copy = 0; copy < 2; copy++) {           // two copies make the loop seamless
+    for (const [label, value, arrow, cls] of items) {
+      const s = el("span");
+      s.append(label + " ");
+      s.appendChild(el("b", value));
+      s.append(" ");
+      s.appendChild(el("i", arrow, cls));
+      if (copy) s.setAttribute("aria-hidden", "true");
+      track.appendChild(s);
+    }
+  }
+}
+
+function renderStats(d) {
+  renderTicker(d);
+  if (!d) return;
+  markSample(d);
+  $("s-margin").textContent = d.profit_margin || "0.00%";
+  const target = Number(d.target_month || 0), raised = Number(d.raised_month || 0);
+  $("s-target").textContent = `${money(raised)} of ${money(target)}`;
+  $("s-target-label").textContent = `${d.month ? d.month + " p" : "P"}rofit target (donated in full)`;
+  $("s-target-bar").style.width = (target ? Math.min(100, raised / target * 100) : 0) + "%";
+  $("s-donated").textContent = money(d.donated_quarter);
+  $("s-souls").textContent = num(d.souls_acquired);
+  $("s-garbage").textContent = num(d.garbage_delivered);
+  if (d.updated) $("updated").textContent = "Figures updated " + new Date(d.updated).toLocaleString() + ".";
+}
+
+const STAGES = [   // [key, column name, SDLC phase, definition]
+  ["backlog", "Product Backlog", "Intake", "Submitted. Awaiting the attention of management."],
+  ["funnel", "Funnel", "Requirements", "The Executor is drafting terms."],
+  ["committed", "Committed", "Sign-off", "Terms signed. For deals, the donation is confirmed."],
+  ["in_progress", "In Progress", "Implementation", "Being built. WIP limit: 1 (there is one employee)."],
+  ["review", "Review", "QA / UAT", "Demonstrated on stream. Chat performs QA."],
+  ["done", "Done", "Deployment", "Shipped to the client, as interpreted by management."],
+  ["accepted", "Accepted", "Maintenance", "Accepted by the client. Maintenance is not included."],
+  ["damned", "Damned", "Won't fix", "Rejected by Legal. Reasons are read aloud."],
+];
+let items = [], boardType = "all", boardQuery = "";
+
+function boardCard(it) {
+  const c = el("div", null, "card");
+  const row = el("div", null, "row");
+  row.appendChild(el("span", it.type === "deal" ? "Deal" : "Proposal", "badge" + (it.type === "deal" ? " deal" : "")));
+  row.appendChild(el("span", it.id, "id"));
+  c.appendChild(row);
+  c.appendChild(el("p", it.title));
+  const meta = el("div", null, "meta");
+  if (it.by) meta.appendChild(el("span", "by " + it.by));
+  if (it.type === "deal" && it.price !== undefined) meta.appendChild(el("span", money(it.price), "price"));
+  if (it.votes !== undefined) meta.appendChild(el("span", "▲ " + it.votes));
+  if (it.contract) meta.appendChild(el("span", it.contract, "mono"));
+  c.appendChild(meta);
+  if (it.terms) c.appendChild(el("div", "Terms: " + it.terms, "terms"));
+  if (it.note) c.appendChild(el("div", it.note, "note"));
+  return c;
+}
+
+function renderBoard() {
+  const board = $("board");
+  board.replaceChildren();
+  const q = boardQuery.toLowerCase();
+  const shown = items.filter(it =>
+    (boardType === "all" || it.type === boardType) &&
+    (!q || String(it.title).toLowerCase().includes(q) || String(it.by || "").toLowerCase().includes(q)));
+  for (const [key, name, phase, def] of STAGES) {
+    const list = shown.filter(it => it.stage === key);
+    list.sort((a, b) => (key === "backlog" ? (b.type === "deal") - (a.type === "deal") : 0)
+      || (b.votes || 0) - (a.votes || 0));   // backlog: deals first; then most upvoted
+    const col = el("div", null, "col" + (key === "damned" ? " damned" : ""));
+    col.setAttribute("role", "group");
+    col.setAttribute("aria-label", name);
+    const head = el("header");
+    head.appendChild(el("div", phase, "phase"));
+    const h = el("h3"); h.appendChild(el("span", name)); h.appendChild(el("span", list.length, "n"));
+    head.appendChild(h); head.appendChild(el("div", def, "def"));
+    col.appendChild(head);
+    if (!list.length) col.appendChild(el("div", "Nothing here.", "empty"));
+    list.forEach(it => col.appendChild(boardCard(it)));
+    board.appendChild(col);
+  }
+}
+
+function renderPipeline(d) {
+  if (d) {
+    markSample(d);
+    items = d.items || [];
+  }
+  renderBoard();
+}
+
+document.querySelectorAll(".chip").forEach(b => b.addEventListener("click", () => {
+  boardType = b.dataset.type;
+  document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", String(x === b)));
+  renderBoard();
+}));
+$("bq").addEventListener("input", e => { boardQuery = e.target.value; renderBoard(); });
+
+function renderLedger(d) {
+  if (!d) return;
+  markSample(d);
+  const body = $("ledger-rows");
+  body.replaceChildren();
+  const rows = d.contracts || [];
+  if (!rows.length) {
+    const tr = el("tr"); const td = el("td", "No contracts signed yet. The Executor is accepting offers.", "empty");
+    td.colSpan = 6; tr.appendChild(td); body.appendChild(tr); return;
+  }
+  for (const c of rows) {
+    const tr = el("tr");
+    tr.appendChild(el("td", c.id, "mono"));
+    tr.appendChild(el("td", c.client));
+    tr.appendChild(el("td", `"${c.terms}" · ${money(c.amount)}`));
+    const paid = el("td");
+    if (c.charity_url && /^https:\/\//.test(c.charity_url)) {   // only real https links are clickable
+      const a = el("a", c.charity); a.href = c.charity_url; a.rel = "noopener nofollow"; a.target = "_blank";
+      paid.appendChild(a);
+    } else paid.textContent = c.charity || "";
+    tr.appendChild(paid);
+    tr.appendChild(el("td", c.delivered || "Pending"));
+    const st = el("td"); st.appendChild(el("span", c.status || "Pending", "status")); tr.appendChild(st);
+    body.appendChild(tr);
+  }
+}
+
+function renderBallots(d) {
+  if (!d) return;
+  markSample(d);
+  if (d.month) {
+    $("ballot-title").textContent = `The Two Chambers of Hell · ${d.month}`;
+    $("ballot-line").textContent = `Pool so far: ${money(d.pool)} · Votes close at the last stream of the month · Weighted by rank`;
+  }
+  // Chamber of the Devil: The Executor picks five charities; the top three are funded
+  if (Array.isArray(d.devil_split) && d.devil_split.length === 3)
+    $("devil-rule").firstChild.textContent =
+      `Half the pool · five charities, top three funded ${d.devil_split.join("% / ")}% · `;
+  for (const [key, funded] of [["souls", 0], ["devil", 3]]) {
+    const box = $("b-" + key);
+    box.replaceChildren();
+    const opts = (d[key] || []).slice().sort((a, b) => b.share - a.share);
+    if (!opts.length) box.appendChild(el("div", "Ballot not open yet.", "empty"));
+    opts.forEach((o, i) => {
+      const share = Math.max(0, Math.min(100, Number(o.share) || 0));
+      const opt = el("div", null, "opt" + (i < funded ? " funded" : ""));
+      const row = el("div"); row.appendChild(el("span", o.name)); row.appendChild(el("span", share + "%"));
+      const bar = el("div", null, "bar"); const fill = el("i"); fill.style.width = share + "%"; bar.appendChild(fill);
+      opt.appendChild(row); opt.appendChild(bar); box.appendChild(opt);
+    });
+  }
+}
+
+let people = [];
+function renderPeople(filter) {
+  const body = $("people");
+  body.replaceChildren();
+  const f = (filter || "").toLowerCase();
+  const list = people.filter(p => !f || String(p.name).toLowerCase().includes(f));
+  if (!list.length) {
+    const tr = el("tr"); const td = el("td", f ? "No employee by that name." : "No employees yet. Applications open on Twitch.", "empty");
+    td.colSpan = 4; tr.appendChild(td); body.appendChild(tr); return;
+  }
+  for (const p of list) {
+    const tr = el("tr");
+    for (const v of [p.name, p.rank, p.title, num(p.brimstone)]) tr.appendChild(el("td", v));
+    body.appendChild(tr);
+  }
+}
+$("q").addEventListener("input", e => renderPeople(e.target.value));
+
+(async () => {
+  const [stats, pipeline, ledger, ballots, personnel] =
+    await Promise.all(["stats", "pipeline", "ledger", "ballots", "personnel"].map(load));
+  renderStats(stats); renderPipeline(pipeline); renderLedger(ledger); renderBallots(ballots);
+  if (personnel) { markSample(personnel); people = (personnel.employees || []).sort((a, b) => b.brimstone - a.brimstone); }
+  renderPeople("");
+})();
+</script>
+</body>
+</html>
