@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Employee Handbook · Terms &amp; Damnations</title>
+<meta name="description" content="The Terms & Damnations Employee Handbook: ranks, Brimstone, devil deals, the Two Chambers of Hell, and HR policy.">
+<meta name="theme-color" content="#121010">
+<link rel="icon" href="avatar.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #121010; --bg2: #171412; --card: #1c1916; --ink: #ece6dc; --muted: #a39a8d;
+  --rule: #34302a; --red: #d64545; --red-deep: #8f1d1d;
+  --serif: "EB Garamond", Georgia, serif; --mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+body { margin: 0; background: var(--bg); color: var(--ink); font: 16px/1.65 Inter, system-ui, sans-serif; }
+a { color: inherit; }
+.wrap { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+.top { position: sticky; top: 0; z-index: 10; background: rgba(18, 16, 16, .92); backdrop-filter: blur(6px); border-bottom: 1px solid var(--rule); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; height: 60px; }
+.mark { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+.mark img { width: 34px; height: 34px; border-radius: 50%; }
+.mark span { font-family: var(--serif); font-weight: 600; letter-spacing: .12em; text-transform: uppercase; font-size: 15px; white-space: nowrap; }
+.top nav a { text-decoration: none; color: var(--muted); font-size: 14px; white-space: nowrap; }
+@media (max-width: 560px) { .top nav .long { display: none; } }
+.top nav a:hover { color: var(--ink); }
+
+header.cover { padding: 56px 0 36px; border-bottom: 3px double var(--rule); }
+.eyebrow { font-family: var(--serif); letter-spacing: .18em; text-transform: uppercase; color: var(--muted); font-size: 14px; }
+h1 { font-family: var(--serif); font-weight: 600; text-transform: uppercase; letter-spacing: .06em; font-size: clamp(36px, 6vw, 64px); line-height: 1.04; margin: 10px 0 16px; }
+.rules { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); height: 6px; max-width: 520px; margin-bottom: 18px; }
+.cover p { font-family: var(--serif); font-size: clamp(18px, 2.1vw, 21px); max-width: 640px; margin: 0; }
+.cover .note { font-family: var(--mono); font-size: 12px; color: var(--muted); margin-top: 16px; letter-spacing: .04em; }
+
+.layout { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 48px; padding-top: 40px; padding-bottom: 24px; }
+@media (max-width: 860px) { .layout { grid-template-columns: 1fr; gap: 8px; } }
+.toc { position: sticky; top: 84px; align-self: start; font-size: 14px; }
+@media (max-width: 860px) { .toc { position: static; border: 1px solid var(--rule); background: var(--card); padding: 14px 18px; } }
+.toc .kicker { margin-bottom: 10px; }
+.toc ol { margin: 0; padding-left: 22px; color: var(--muted); }
+.toc li { margin: 4px 0; }
+.toc a { color: var(--muted); text-decoration: none; }
+.toc a:hover { color: var(--ink); }
+
+article { max-width: 760px; min-width: 0; }
+section { padding: 8px 0 28px; border-bottom: 1px solid var(--rule); margin-bottom: 28px; }
+section:last-child { border-bottom: 0; }
+.kicker { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--red); margin-bottom: 4px; }
+h2 { font-family: var(--serif); font-weight: 600; font-size: clamp(26px, 3.2vw, 34px); margin: 0 0 12px; line-height: 1.15; }
+h3 { font-family: var(--serif); font-weight: 600; font-size: 21px; margin: 22px 0 6px; }
+p { margin: 0 0 14px; }
+ul, ol { margin: 0 0 14px; padding-left: 22px; }
+li { margin: 4px 0; }
+.muted { color: var(--muted); }
+code, .mono { font-family: var(--mono); font-size: 13.5px; }
+code { background: var(--card); border: 1px solid var(--rule); padding: 1px 5px; white-space: nowrap; }
+.catch { font-family: var(--serif); font-style: italic; font-size: 20px; color: var(--muted); }
+.callout { border-left: 3px solid var(--red); background: var(--card); padding: 14px 18px; margin: 0 0 16px; }
+.callout p:last-child { margin-bottom: 0; }
+
+.scroll { overflow-x: auto; margin: 0 0 16px; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border: 1px solid var(--rule); }
+th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--rule); vertical-align: top; font-size: 14px; }
+th { font-size: 11.5px; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); font-weight: 600; white-space: nowrap; }
+td:first-child { white-space: nowrap; }
+td.num { font-family: var(--mono); }
+@media (max-width: 560px) {
+  th, td { padding: 8px 9px; font-size: 13px; }
+  th, td:first-child, code { white-space: normal; }
+}
+tr.secret td { border-top: 1px dashed var(--rule); border-bottom: 1px dashed var(--rule); }
+.redact { background: var(--ink); color: transparent; user-select: none; padding: 0 4px; }
+.tag { font-family: var(--mono); font-size: 10.5px; letter-spacing: .1em; text-transform: uppercase; padding: 1px 6px; border: 1px solid var(--rule); color: var(--muted); margin-left: 6px; }
+.tag.paid { border-color: var(--red); color: var(--red); }
+
+footer { border-top: 3px double var(--rule); padding: 36px 0 48px; text-align: center; }
+footer .catch { margin: 0 0 18px; font-size: 26px; color: var(--ink); }
+footer .links { display: flex; justify-content: center; flex-wrap: wrap; gap: 22px; font-size: 14px; }
+footer .links a { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <a class="mark" href="./"><img src="avatar.png" alt=""><span>Terms &amp; Damnations</span></a>
+    <nav><a href="./">← <span class="long">Back to the </span>Company</a></nav>
+  </div>
+</div>
+
+<header class="cover">
+  <div class="wrap">
+    <div class="eyebrow">Human Resources · Public edition</div>
+    <h1>Employee Handbook</h1>
+    <div class="rules"></div>
+    <p>Welcome aboard. You now work for the world's first for-zero-profit streamer corporation, which donates every dollar it earns to charity. Please read this handbook in full. Nobody will check.</p>
+    <div class="note">Typing in our Twitch chat constitutes acceptance of this handbook.</div>
+  </div>
+</header>
+
+<div class="wrap layout">
+  <nav class="toc" aria-label="Contents">
+    <div class="kicker">Contents</div>
+    <ol>
+      <li><a href="#welcome">Welcome</a></li>
+      <li><a href="#ranks">Org chart and ranks</a></li>
+      <li><a href="#brimstone">Brimstone</a></li>
+      <li><a href="#deals">Proposals and devil deals</a></li>
+      <li><a href="#chambers">The Two Chambers of Hell</a></li>
+      <li><a href="#meetings">Meetings and cadence</a></li>
+      <li><a href="#hr">Code of conduct</a></li>
+      <li><a href="#fine-print">Transparency and fine print</a></li>
+      <li><a href="#offices">Where we operate</a></li>
+      <li><a href="#commands">Appendix: chat commands</a></li>
+    </ol>
+  </nav>
+
+  <article>
+    <section id="welcome">
+      <div class="kicker">§1</div>
+      <h2>Welcome to Terms &amp; Damnations</h2>
+      <p>Our Chief Executor Officer is The Executor, a stick figure who is also the Devil. Our Legal Department is also The Executor. Questions about this structure may be directed to HR.</p>
+      <div class="callout"><p><b>Mission statement:</b> to deliver software at scale, with integrity, as interpreted by management, and give away 100% of the proceeds.</p></div>
+      <ul>
+        <li><b>Every stream is a business day.</b> Meetings are held with complete seriousness, and a sprint is four streams.</li>
+        <li><b>Employees climb the org chart.</b> Showing up earns Brimstone and titles; subscriptions come with management titles. Your title is your influence.</li>
+        <li><b>Stakeholders decide where the money goes.</b> Every month the Two Chambers of Hell vote on the donations.</li>
+        <li><b>Clients sign contracts with The Executor.</b> Proposals and deals move across the public <a href="./#pipeline">Agility board</a>, from backlog to acceptance.</li>
+      </ul>
+      <p class="catch">Terms and damnations may apply.</p>
+    </section>
+
+    <section id="ranks">
+      <div class="kicker">§2</div>
+      <h2>Org chart and ranks</h2>
+      <p>Every employee holds a demon rank and a business title. Your rank sets how much your vote counts.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Rank</th><th>Business title</th><th>How you get it</th><th>Vote weight</th></tr></thead>
+        <tbody>
+          <tr><td>The Executor</td><td>Chief Executor Officer</td><td>Already has the job</td><td>Sets the ballots, holds the veto</td></tr>
+          <tr class="secret"><td>Board of Executives<span class="tag paid">Bound</span></td><td><span class="redact">classified</span></td><td>Bound by contract</td><td><span class="redact">redacted</span></td></tr>
+          <tr><td>Goetic Demon<span class="tag paid">Paid</span></td><td>Board of Directors</td><td>Tier 3 subscription</td><td class="num">×8</td></tr>
+          <tr><td>Archdemon<span class="tag paid">Paid</span></td><td>Vice President</td><td>Tier 2 subscription</td><td class="num">×5</td></tr>
+          <tr><td>Demon<span class="tag paid">Paid</span></td><td>Senior Associate</td><td>Tier 1 or Prime subscription</td><td class="num">×3</td></tr>
+          <tr><td>Fiend</td><td>Associate</td><td>Earn 300 Brimstone</td><td class="num">×2</td></tr>
+          <tr><td>Hellspawn</td><td>Intern</td><td>Earn 50 Brimstone</td><td class="num">×1</td></tr>
+          <tr><td>Damned Soul</td><td>Applicant</td><td>Send your first chat message</td><td class="num">×0 · Damned Souls do not vote</td></tr>
+        </tbody>
+      </table></div>
+      <p>Every member of the Board of Directors is personally named after one of the 72 demons of the <i>Ars Goetia</i>, in their traditional order: the first is Bael, the second Agares, and so on. The board closes at 72.</p>
+      <p>Paid rank is your highest subscription tier, and earned rank keeps counting underneath it. A gifted subscription counts the same as a bought one.</p>
+    </section>
+
+    <section id="brimstone">
+      <div class="kicker">§3</div>
+      <h2>Brimstone</h2>
+      <p>Brimstone is the Company's internal currency. It has no cash value and cannot be bought, sold or transferred. You earn it like this:</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Activity</th><th>Brimstone</th></tr></thead>
+        <tbody>
+          <tr><td>Attending a stream (your first chat message that day)</td><td class="num">+10</td></tr>
+          <tr><td>Each chat message, up to 20 per stream</td><td class="num">+1</td></tr>
+          <tr><td>Each item you upvote</td><td class="num">+5</td></tr>
+          <tr><td>A proposal you filed is committed to a sprint</td><td class="num">+25</td></tr>
+        </tbody>
+      </table></div>
+      <p>The Company bot counts Brimstone automatically from Twitch chat. Every balance is public in the <a href="./#personnel">Personnel directory</a>. These rates are starting values and will be tuned after launch.</p>
+    </section>
+
+    <section id="deals">
+      <div class="kicker">§4</div>
+      <h2>Proposals and devil deals</h2>
+      <p>The Company builds software: apps, websites, tools, bots and other things that run on a computer. Anyone can submit a proposal. Fiends and above can request a deal, which is paid as a donation straight to a charity Legal picks.</p>
+      <div class="scroll"><table>
+        <thead><tr><th></th><th>Proposal</th><th>Deal</th></tr></thead>
+        <tbody>
+          <tr><td>Command</td><td><code>!proposal &lt;idea&gt;</code></td><td><code>!deal &lt;wish&gt; for $&lt;price&gt;</code></td></tr>
+          <tr><td>Who</td><td>Every employee</td><td>Fiend and above</td></tr>
+          <tr><td>Cost</td><td>Free for now</td><td>A donation of the agreed price ($1 to $1,000) to the paired charity</td></tr>
+          <tr><td>In the backlog</td><td>Sorted by upvotes</td><td>Above every proposal</td></tr>
+        </tbody>
+      </table></div>
+      <h3>The Agility board</h3>
+      <p>Every item moves through eight stages, each named after a phase of the software development lifecycle.</p>
+      <ol>
+        <li><b>Product Backlog</b> <span class="muted">(intake)</span>: submitted, awaiting the attention of management.</li>
+        <li><b>Funnel</b> <span class="muted">(requirements)</span>: The Executor drafts the terms.</li>
+        <li><b>Committed</b> <span class="muted">(sign-off)</span>: the client signs with <code>!sign</code>. For deals, the donation is confirmed and a contract number such as TD-0001 is issued.</li>
+        <li><b>In Progress</b> <span class="muted">(implementation)</span>: built live on stream. WIP limit: 1, since there is one employee.</li>
+        <li><b>Review</b> <span class="muted">(QA and UAT)</span>: demonstrated on stream while chat performs QA.</li>
+        <li><b>Done</b> <span class="muted">(deployment)</span>: delivered, as interpreted by management.</li>
+        <li><b>Accepted</b> <span class="muted">(maintenance)</span>: the client accepts with <code>!accept</code>. Silence for seven days after delivery constitutes acceptance. Maintenance is not included.</li>
+        <li><b>Damned</b> <span class="muted">(won't fix)</span>: rejected by Legal, with the reason read aloud.</li>
+      </ol>
+      <p><b>Upvotes.</b> Hellspawn and above can <code>!vote</code> any item at any stage, at their rank's weight. Upvotes show what employees want done; they move no money.</p>
+      <h3>The Garbage Clause</h3>
+      <p>The Devil interprets every wish creatively. You agree that whatever you receive fulfills the contract in full, however literal, useless or cursed it is.</p>
+      <p><b>No refunds.</b> Your payment is a donation to a registered charity, not a purchase. The Company never holds it, so it cannot return it.</p>
+      <p><b>Serious deals.</b> Now and then a request is real and doable. Then the Devil negotiates a fair price and the deal moves off stream with a written agreement. Serious deals are for adults (18+) only.</p>
+      <h3>Legal will reject any deal involving</h3>
+      <ul>
+        <li>anything illegal, or harm to anyone</li>
+        <li>personal information about real people</li>
+        <li>cheating, or breaking another platform's rules</li>
+        <li>malware, hacking or security work</li>
+        <li>schoolwork you are supposed to do yourself</li>
+      </ul>
+      <p><b>Under 18?</b> Ask a parent before you donate anything.</p>
+    </section>
+
+    <section id="chambers">
+      <div class="kicker">§5</div>
+      <h2>The Two Chambers of Hell</h2>
+      <p>Every month the donation pool is split in half. One half is divided by vote share; the other half funds the top three of five charities The Executor picks. Devil deal money never enters the pool; it goes straight to each deal's paired charity.</p>
+      <ul>
+        <li><b>Who votes:</b> every employee from Hellspawn up, in both Chambers, at their rank's vote weight.</li>
+        <li><b>Chamber of Souls:</b> a standing ballot of three to five approved charities. Each gets the share of its half that matches its share of the vote.</li>
+        <li><b>Chamber of the Devil:</b> The Executor picks five charities each month, and the three with the most votes are funded.</li>
+        <li><b>When:</b> ballots open at the first stream of the month and close on screen at the last one. You may change your vote until the close; your last vote counts.</li>
+        <li><b>Ties:</b> The Executor breaks them.</li>
+        <li><b>Payout:</b> donations go out within a week of the close, and receipts appear at the next earnings call.</li>
+        <li><b>Legal's veto:</b> an option is pulled if the charity turns out not to be in good standing.</li>
+      </ul>
+      <p>Live results are in the <a href="./#ballots">public disclosures</a>.</p>
+    </section>
+
+    <section id="meetings">
+      <div class="kicker">§6</div>
+      <h2>Meetings and cadence</h2>
+      <p>A sprint is four streams. Meetings are short segments inside normal streams; the rest of the time we play games and ship software.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Meeting</th><th>When</th><th>What happens</th><th>What employees do</th></tr></thead>
+        <tbody>
+          <tr><td>Standup</td><td>Start of every stream</td><td>The Executor reports yesterday, today and blockers</td><td>Report your own blockers</td></tr>
+          <tr><td>Sprint planning</td><td>Stream 1 of each sprint</td><td>The most-wanted items are pulled into the sprint</td><td><code>!vote</code> on the Agility board</td></tr>
+          <tr><td>Sprint review</td><td>Stream 4 of each sprint</td><td>Demo of everything shipped</td><td>QA it; clients <code>!accept</code></td></tr>
+          <tr><td>Retrospective</td><td>Right after the review</td><td>What went wrong, in detail</td><td>File complaints with HR</td></tr>
+          <tr><td>Ballot close</td><td>Last stream of each month</td><td>Both Chambers' votes are counted on screen</td><td>Vote before it closes</td></tr>
+          <tr><td>Earnings call</td><td>Once a quarter</td><td>Income, the platform's cut, donations, receipts</td><td>Shareholder Q&amp;A</td></tr>
+        </tbody>
+      </table></div>
+      <p>Business hours are posted on the <a href="https://www.twitch.tv/termsanddamnations/schedule" rel="noopener">Twitch schedule</a>.</p>
+      <h3>Meeting etiquette</h3>
+      <p>Meetings are run with total seriousness, regardless of content.</p>
+      <ul>
+        <li><b>Never break character in a meeting.</b> Nod. Take notes. Ask follow-up questions.</li>
+        <li><b>Use the vocabulary:</b> synergy, alignment, stakeholders, deliverables, circle back, quarter over quarter.</li>
+        <li><b>Report numbers with confidence.</b> "This sprint we shipped 0.4 features, a 300% increase quarter over quarter."</li>
+        <li><b>Blockers are real objects.</b> "Yesterday I aligned cross-functionally with the chair. Today I'm leveraging synergies with the microwave. Blockers: the chair."</li>
+        <li><b>The profit margin is always 0%,</b> and The Executor is always proud of it.</li>
+      </ul>
+    </section>
+
+    <section id="hr">
+      <div class="kicker">§7</div>
+      <h2>Code of conduct</h2>
+      <div class="callout"><p><b>The one rule that ends employment immediately: never try to identify The Executor.</b> The Executor is a stick figure, and that is all anyone needs to know. No guessing, no digging through clues, no posting theories. "I think I know who you are" counts too.</p></div>
+      <p>Everyone is also expected to:</p>
+      <ul>
+        <li><b>Keep everyone's personal information private,</b> including your own.</li>
+        <li><b>Skip hate, slurs and harassment.</b> Jokes about the Company are encouraged; jokes at a real person's expense are not.</li>
+        <li><b>Treat text-to-speech as a privilege.</b> No slurs, no personal info, no spam. HR can skip any message.</li>
+        <li><b>Not spam or self-promote</b> without asking HR first.</li>
+        <li><b>Follow the platform's rules.</b> The Company operates on someone else's property.</li>
+      </ul>
+      <p>HR (the moderators) enforces this in three steps:</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Step</th><th>Corporate term</th><th>What happens</th></tr></thead>
+        <tbody>
+          <tr><td class="num">1</td><td>Written up</td><td>A warning in chat</td></tr>
+          <tr><td class="num">2</td><td>Unpaid leave</td><td>A timeout</td></tr>
+          <tr><td class="num">3</td><td>Terminated</td><td>A permanent ban</td></tr>
+        </tbody>
+      </table></div>
+      <p>Serious offenses, such as hate speech or trying to identify The Executor, go straight to step 3. HR's decisions are final.</p>
+    </section>
+
+    <section id="fine-print">
+      <div class="kicker">§8</div>
+      <h2>Transparency and fine print</h2>
+      <p>Every dollar is shown publicly, so nobody has to take the Devil's word for anything.</p>
+      <ul>
+        <li><b>The quarterly earnings call</b> shows income by source, the platform's cut, each month's vote results, and the donation receipts.</li>
+        <li><b><a href="./#ledger">The Devil's Ledger</a></b> lists every deal: the client's username, the terms, the amount, the charity, the donation link, and what was delivered.</li>
+      </ul>
+      <h3>The fine print</h3>
+      <ul>
+        <li><b>A subscription is a purchase, not a donation.</b> It is not tax-deductible for you. The Company donates its earnings after the platform's cut.</li>
+        <li><b>Deal payments are donations you make directly to the charity.</b> The Company never touches that money.</li>
+        <li><b>Brimstone has no cash value</b> and cannot be bought, sold, transferred or cashed out.</li>
+        <li><b>"Shareholder" and "stakeholder" are job titles,</b> not ownership. Nobody owns any part of the Company or gets a return.</li>
+        <li><b>Terms &amp; Damnations is not a registered nonprofit.</b> It is a for-zero-profit joke with real donations. Every charity on a ballot is a registered nonprofit that Legal has checked.</li>
+        <li><b>All software is provided "as is",</b> without warranty of any kind, express, implied, or infernal.</li>
+      </ul>
+    </section>
+
+    <section id="offices">
+      <div class="kicker">§9</div>
+      <h2>Where we operate</h2>
+      <p>The Company streams on YouTube and Twitch at the same time.</p>
+      <ul>
+        <li><b><a href="https://www.youtube.com/@TermsAndDamnations" rel="noopener">YouTube</a> is headquarters.</b> Every stream, meeting and earnings call stays up there as a permanent replay.</li>
+        <li><b><a href="https://www.twitch.tv/termsanddamnations" rel="noopener">Twitch</a> is the branch office.</b> Chat commands, Brimstone and paid ranks work there.</li>
+      </ul>
+      <p>YouTube memberships will become paid ranks once the channel qualifies for them. Until then, paid ranks are Twitch subscriptions only, and YouTube viewers are welcome to visit the branch office.</p>
+    </section>
+
+    <section id="commands">
+      <div class="kicker">Appendix</div>
+      <h2>Chat commands</h2>
+      <p>Type these in Twitch chat. Successful commands appear on stream; only mistakes get a reply in chat.</p>
+      <div class="scroll"><table>
+        <thead><tr><th>Command</th><th>Who</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td><code>!rank</code></td><td>Everyone</td><td>Shows your rank, title, Brimstone and vote weight</td></tr>
+          <tr><td><code>!proposal &lt;idea&gt;</code></td><td>Everyone</td><td>Files a proposal in the Product Backlog (three waiting per person at most)</td></tr>
+          <tr><td><code>!deal &lt;wish&gt; for $&lt;price&gt;</code></td><td>Fiend and above</td><td>Files a deal for $1 to $1,000, above the proposals</td></tr>
+          <tr><td><code>!vote HELL-123</code></td><td>Hellspawn and above</td><td>Upvotes an item at your rank's weight</td></tr>
+          <tr><td><code>!sign HELL-123</code></td><td>The client</td><td>Signs the terms in the Funnel</td></tr>
+          <tr><td><code>!accept HELL-123</code></td><td>The client</td><td>Accepts a delivered item</td></tr>
+          <tr><td><code>!damn HELL-123 &lt;reason&gt;</code></td><td>The Executor, HR</td><td>Rejects an item</td></tr>
+          <tr><td><code>!terms</code> · <code>!move</code></td><td>The Executor</td><td>Drafts terms and moves items across the board</td></tr>
+        </tbody>
+      </table></div>
+      <p class="muted">Coming later: monthly voting commands for the Two Chambers, and YouTube chat support.</p>
+    </section>
+  </article>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p class="catch">Signed, sealed, damned.</p>
+    <div class="links">
+      <a href="./">The Company</a>
+      <a href="https://www.twitch.tv/termsanddamnations" rel="noopener">Twitch</a>
+      <a href="https://www.youtube.com/@TermsAndDamnations" rel="noopener">YouTube</a>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
